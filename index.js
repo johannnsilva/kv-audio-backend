@@ -2,6 +2,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import Student from "./models/student.js";
+import studentRouter from "./models/routes/studentRoutes.js";
+
 let app = express();
 
 app.use(bodyParser.json());
