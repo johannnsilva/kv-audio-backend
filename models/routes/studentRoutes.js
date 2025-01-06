@@ -6,4 +6,4 @@ studentRouter.get("/", getStudents);
 
 studentRouter.post("/",postStudent);
 
-export default studentRouter
+export default studentRouter;

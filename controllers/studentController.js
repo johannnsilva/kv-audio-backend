@@ -1,12 +1,26 @@
+import Student from "../models/student.js"
+
 export function getStudents(req,res){
-    res.json({
-        message:"This is a get request from student route"
+    Student.find().them(
+        (result)=>{
+            res.jason(result)
+        }
+    )
+}
+
+export function postStudents(req,res){
+ 
+    let studentData = req.body
+
+    let student = new Student (studentData)
+
+    student.save().them(()=>{
+        res.json({
+            message:"Student saved successfully"
+        } )
+    } ).catch(()=>{
+        message : "Student saving failed"
     }
 
     )
-}
-export function postStudent(req,res){
-    res.json({
-        message:"This is a get request from student router"
-    })
 }
