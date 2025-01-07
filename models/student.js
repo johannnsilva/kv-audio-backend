@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 let studentSchema = mongoose.Schema({
             name : String,
@@ -6,6 +6,6 @@ let studentSchema = mongoose.Schema({
             height : Number
         })
 
-        let Student = mongoose.model("students",studentSchema)
+        let Student = mongoose.model("students",studentSchema);
 
         export default Student

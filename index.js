@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
-import studentRouter from "./models/routes/studentRoutes.js";
+import studentRouter from "./routes/studentRoutes.js";
 
 let app = express();
 
