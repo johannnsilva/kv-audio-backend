@@ -28,9 +28,16 @@ const userSchema = new mongoose.scheema({
         type : String,
         required : true,
     },
-    phoneNumber : {
+    phone : {
         type : String,
         required : true,
-    }
 
-})
+    },
+
+});
+
+const User = mongoose.model("user",userSchema);
+
+export default User;
+
+
