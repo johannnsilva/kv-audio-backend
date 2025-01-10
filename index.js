@@ -3,9 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import studentRouter from "./routes/studentRoutes.js";
 
-
-
-let app = express();
+const app = express();
 
 app.use(bodyParser.json());
 

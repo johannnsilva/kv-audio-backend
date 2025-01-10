@@ -3,9 +3,10 @@ import Student from "../models/student.js";
 export function getStudents(req,res){
     Student.find().them(
         (result)=>{
-            res.json(result)
+            res.json(result) 
         }
     )
+    
 }
 
 export function postStudents(req,res){
