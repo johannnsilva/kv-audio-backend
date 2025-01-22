@@ -1,7 +1,12 @@
 
-export function registerUser(req,res){
+import bcrypt from "bcrypt"
 
-    const newUser = new User(req.body)
+export function registerUser(req,res){
+const data = req.body;
+
+data.password = bcrypt.hashSync(data.password,10)
+
+    const newUser = new User(data)
 
 newUser.save().then(()=>{
     res.json({message : "User registered successfully"})
