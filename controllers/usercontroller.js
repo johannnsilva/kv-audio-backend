@@ -1,4 +1,3 @@
-import User from "../models/user.js";
 
 export function registerUser(req,res){
 
