@@ -1,5 +1,7 @@
 
 import bcrypt from "bcrypt"
+import e from "express";
+import User from "../models/user.js"
 
 export function registerUser(req,res){
 const data = req.body;
@@ -14,5 +16,21 @@ newUser.save().then(()=>{
     res.status(500).json({error : "User registration faild"})
 })
 
+
+}
+
+
+export function loginUser(req,res){
+    const data = req.body;
+
+    User.findOne({email : data.email
+
+    }).then(
+        (user)=>{
+            res.json({
+                user : user
+            })
+        }
+)
 
 }
