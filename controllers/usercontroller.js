@@ -1,4 +1,4 @@
-
+import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 import e from "express";
 import User from "../models/user.js"
@@ -27,10 +27,28 @@ export function loginUser(req,res){
 
     }).then(
         (user)=>{
-            res.json({
-                user : user
-            })
-        }
-)
+            if(!user==null){
+                res.status(401).json({error : "User not found"})
 
+                }else{
+                    const ispasswordCorrect = bcrypt.compareSync(data.password,user.password)
+
+                    if(ispasswordCorrect){
+                        const token = jwt.sign({
+                            fisrtName : user.firstName,
+                            lastName : user.lastName,
+                            email : user.email,
+                            role : user.role
+                        },"Kv-secret-89!")
+
+                        res.json({ message : "User logged in successfully",token : token});
+
+                    }else{
+                        res.status(401).json({error : "Invalid password"})
+
+                    }   
+                }
+        }
+
+)
 }
